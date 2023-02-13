@@ -1,0 +1,16 @@
+C:\Users\elkt\Desktop\ML\С#\TestTask\bin\Debug\TestTask.exe.config
+C:\Users\elkt\Desktop\ML\С#\TestTask\bin\Debug\TestTask.exe
+C:\Users\elkt\Desktop\ML\С#\TestTask\bin\Debug\TestTask.pdb
+C:\Users\elkt\Desktop\ML\С#\TestTask\obj\Debug\TestTask.csproj.AssemblyReference.cache
+C:\Users\elkt\Desktop\ML\С#\TestTask\obj\Debug\TestTask.csproj.SuggestedBindingRedirects.cache
+C:\Users\elkt\Desktop\ML\С#\TestTask\obj\Debug\TestTask.csproj.CoreCompileInputs.cache
+C:\Users\elkt\Desktop\ML\С#\TestTask\obj\Debug\TestTask.exe
+C:\Users\elkt\Desktop\ML\С#\TestTask\obj\Debug\TestTask.pdb
+C:\Users\tamir\OneDrive\Рабочий стол\С#\TestTask\bin\Debug\TestTask.exe.config
+C:\Users\tamir\OneDrive\Рабочий стол\С#\TestTask\bin\Debug\TestTask.exe
+C:\Users\tamir\OneDrive\Рабочий стол\С#\TestTask\bin\Debug\TestTask.pdb
+C:\Users\tamir\OneDrive\Рабочий стол\С#\TestTask\obj\Debug\TestTask.csproj.AssemblyReference.cache
+C:\Users\tamir\OneDrive\Рабочий стол\С#\TestTask\obj\Debug\TestTask.csproj.SuggestedBindingRedirects.cache
+C:\Users\tamir\OneDrive\Рабочий стол\С#\TestTask\obj\Debug\TestTask.csproj.CoreCompileInputs.cache
+C:\Users\tamir\OneDrive\Рабочий стол\С#\TestTask\obj\Debug\TestTask.exe
+C:\Users\tamir\OneDrive\Рабочий стол\С#\TestTask\obj\Debug\TestTask.pdb
