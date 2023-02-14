@@ -21,9 +21,10 @@ namespace TestTask
             {
                 arr[i] = int.Parse(elements[i].ToString());
             }
+
             if ((arr.Sum() % arr.Length) != 0)
             {
-                Console.WriteLine("Количество фишек указано неверно! Давай по новой запускать программу.");
+                Console.WriteLine("Количество фишек указано неверно! Попробуйте еще раз.");
                 Console.ReadLine();
             }
             else
@@ -65,8 +66,17 @@ namespace TestTask
             bool flag = false;
             while (flag == false)
             {
-                int index_max = Array.IndexOf(arr, arr.Max());
+                int index_max = 0;
                 int index_to_shift = 0;
+                ArrayList max_arr = new ArrayList();
+                for (int i = 0; i < arr.Length; i++)
+                {
+                    if (arr[i] == arr.Max())
+                    {
+                        max_arr.Add(i);
+                    }
+                }
+                
                 ArrayList shifts = new ArrayList();
                 for (int i = 0; i < arr.Length; i++)
                 {
@@ -75,22 +85,27 @@ namespace TestTask
                         shifts.Add(i);
                     }
                 }
+
                 int shift_dist = arr.Length;
                 //char direction = new char();
-                foreach (int element in shifts)
+
+                foreach (int elem in max_arr)
                 {
-                    if (Convert.ToInt32(Distance(index_max, element, arr.Length)[1]) < shift_dist)
+                    foreach (int element in shifts)
                     {
-                        shift_dist = Convert.ToInt32(Distance(index_max, element, arr.Length)[1]);
-                        index_to_shift = element;
-                        //direction = Convert.ToChar(Distance(index_max, element, arr.Length)[0]);
+                        if (Convert.ToInt32(Distance(elem, element, arr.Length)[1]) < shift_dist)
+                        {
+                            shift_dist = Convert.ToInt32(Distance(elem, element, arr.Length)[1]);
+                            index_to_shift = element;
+                            index_max = elem;
+                        }
                     }
                 }
                 arr[index_max] -= 1;
                 arr[index_to_shift] += 1;
                 res_shift_count += shift_dist;
 
-                // Цикл проверки элементов массива среднему значению,
+                // Цикл проверки равенства элементов массива среднему значению,
                 // как только все элементы равны среднему, переменная flag 
                 // меняет значение и происходит выход из while
                 foreach (int i in arr)
