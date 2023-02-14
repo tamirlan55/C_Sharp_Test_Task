@@ -13,27 +13,32 @@ namespace TestTask
         {
             Console.InputEncoding = Encoding.Unicode;
             Console.OutputEncoding = Encoding.Unicode;
-            Console.Write("Расположите фишки на столе, указав количество фишек через пробел: ");
-            String[] elements = Console.ReadLine().Split(' ');
+            
+            bool key_out = false;
 
-            int[] arr = new int[elements.Length];
-            for (int i = 0; i < elements.Length; i++)
-            {
-                arr[i] = int.Parse(elements[i].ToString());
-            }
+            while (key_out == false)
 
-            if ((arr.Sum() % arr.Length) != 0)
             {
-                Console.WriteLine("Количество фишек указано неверно! Попробуйте еще раз.");
-                Console.ReadLine();
-            }
-            else
-            {
-                Console.WriteLine("У каждого игрока должно быть по " + (arr.Sum() / arr.Length) + " фишек.");
+                Console.Write("Расположите фишки на столе, указав количество фишек через пробел: ");
+                String[] elems = Console.ReadLine().Split(' ');
+                int[] array = new int[elems.Length];
+                for (int i = 0; i < elems.Length; i++)
+                {
+                    array[i] = int.Parse(elems[i].ToString());
+                }
+                if (array.Sum() % array.Length != 0)
+                {
+                    Console.WriteLine("Количество фишек указано неверно! Попробуйте еще раз.");
+                }
+                else
+                {
+                    Console.WriteLine("У каждого игрока должно быть по " + (array.Sum() / array.Length) + " фишек.");
+                    Console.WriteLine("Минимальное количество необходимых перестановок:  " + Step(array, 0)[0]);
+                    Console.ReadKey();
+                    key_out = true;
+                }
             }
             
-            Console.WriteLine("Минимальное количество необходимых перестановок:  " + Step(arr, 0)[0]);
-            Console.ReadKey();
 
         }
         // Функция, считающая наименьшее расстояние между заданными
