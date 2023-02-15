@@ -71,14 +71,15 @@ namespace TestTask
             bool flag = false;
             while (flag == false)
             {
-                int index_max = 0;
+                int index_more = 0;
                 int index_to_shift = 0;
-                ArrayList max_arr = new ArrayList();
+
+                ArrayList arr_more_half = new ArrayList();
                 for (int i = 0; i < arr.Length; i++)
                 {
-                    if (arr[i] == arr.Max())
+                    if (arr[i] > (arr.Sum() / arr.Length))
                     {
-                        max_arr.Add(i);
+                        arr_more_half.Add(i);
                     }
                 }
                 
@@ -91,46 +92,71 @@ namespace TestTask
                     }
                 }
 
-                int shift_dist = arr.Length;
+                
                 //char direction = new char();
 
-                foreach (int elem in max_arr)
+                // Цикл, сравнивающий расстояние от максимального элемента до текущего, 
+                // и сохранящий нужные индексы
+                foreach (int elem in arr_more_half)
                 {
+                    arr_more_half = new ArrayList();
+                    for (int i = 0; i < arr.Length; i++)
+                    {
+                        if (arr[i] > (arr.Sum() / arr.Length))
+                        {
+                            arr_more_half.Add(i);
+                        }
+                    }
+
+                    shifts = new ArrayList();
+                    for (int i = 0; i < arr.Length; i++)
+                    {
+                        if (arr[i] < arr.Sum() / arr.Length)
+                        {
+                            shifts.Add(i);
+                        }
+                    }
+
+                    if (flag == true)
+                    {
+                        break;
+                    }
+                    
+                    int shift_dist = arr.Length;
                     foreach (int element in shifts)
                     {
                         if (Convert.ToInt32(Distance(elem, element, arr.Length)[1]) < shift_dist)
                         {
                             shift_dist = Convert.ToInt32(Distance(elem, element, arr.Length)[1]);
                             index_to_shift = element;
-                            index_max = elem;
+                            index_more = elem;
                         }
                     }
-                }
-                arr[index_max] -= 1;
-                arr[index_to_shift] += 1;
-                res_shift_count += shift_dist;
+                    arr[index_more] -= 1;
+                    arr[index_to_shift] += 1;
+                    res_shift_count += shift_dist;
 
-                // Цикл проверки равенства элементов массива среднему значению,
-                // как только все элементы равны среднему, переменная flag 
-                // меняет значение и происходит выход из while
-                foreach (int i in arr)
-                {
-                    if (i != arr.Sum() / arr.Length)
+                    // Цикл проверки равенства элементов массива среднему значению,
+                    // как только все элементы равны среднему, переменная flag 
+                    // меняет значение и происходит выход из while
+                    foreach (int i in arr)
                     {
-                        flag = false;
-                        break;
-                    }
-                    else
-                    {
-                        flag = true;
-                        continue;
+                        if (i != arr.Sum() / arr.Length)
+                        {
+                            flag = false;
+                            break;
+                        }
+                        else
+                        {
+                            flag = true;
+                            continue;
+                        }
                     }
                 }
             }
             ArrayList result = new ArrayList();
             result.Add(res_shift_count);
             return result;
-
         }
     }
 }
